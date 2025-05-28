@@ -1,3 +1,3 @@
-# AI Growth Assistant
+# AI Growth Assistant (Full Version)
 
-Minimal version of an AI-based self-development app.
+Full-featured version with journaling, scoring, admin view, and reminders.
