@@ -5,7 +5,7 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww15320\viewh12980\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 // \uc0\u12501 \u12523 \u12450 \u12483 \u12503 \u12464 \u12524 \u12540 \u12489 \u29256 \u65306 AI\u25104 \u38263 \u12450 \u12471 \u12473 \u12479 \u12531 \u12488 \u12450 \u12503 \u12522  with UI/UX + AI\u24375 \u21270  + \u12466 \u12540 \u12511 \u12501 \u12451 \u12465 \u12540 \u12471 \u12519 \u12531 \
+\f0\fs24 \cf0 // \uc0\u12501 \u12523 \u36914 \u21270 \u29256 \u65306 AI\u25104 \u38263 \u12450 \u12471 \u12473 \u12479 \u12531 \u12488 \u12450 \u12503 \u12522  with UI\u24375 \u21270  + \u12466 \u12540 \u12511 \u12501 \u12451 \u12465 \u12540 \u12471 \u12519 \u12531  + \u23550 \u35441 AI\u12514 \u12472 \u12517 \u12540 \u12523 \u65288 \u30097 \u20284 \u65289 \
 import \{ useState, useEffect \} from "react";\
 import \{ Button \} from "../components/ui/button";\
 import \{ Card, CardContent \} from "../components/ui/card";\
@@ -30,6 +30,13 @@ function groupScoresByWeek(history) \{\
   \}));\
 \}\
 \
+function getBadge(score) \{\
+  if (score >= 200) return "\uc0\u55356 \u57286  \u25104 \u38263 \u12510 \u12473 \u12479 \u12540 ";\
+  if (score >= 100) return "\uc0\u55356 \u57119  \u20869 \u30465 \u12456 \u12461 \u12473 \u12497 \u12540 \u12488 ";\
+  if (score >= 50) return "\uc0\u55357 \u56613  \u12473 \u12479 \u12540 \u12479 \u12540 ";\
+  return "\uc0\u55357 \u56624  \u12399 \u12376 \u12417 \u12383 \u12400 \u12363 \u12426 ";\
+\}\
+\
 export default function GrowthAssistantApp() \{\
   const [userGoal, setUserGoal] = useState("");\
   const [aiInsight, setAiInsight] = useState("");\
@@ -45,7 +52,7 @@ export default function GrowthAssistantApp() \{\
   useEffect(() => \{\
     const interval = setInterval(() => \{\
       const now = new Date();\
-      const [hour, minute] = notificationTime.split(":").map(Number);\
+      const [hour, minute] = notificationTime.split(":".map(Number));\
       if (now.getHours() === hour && now.getMinutes() === minute) \{\
         const reminder = `\uc0\u55357 \u56596  $\{now.toLocaleTimeString()\} - \u20170 \u26085 \u12398 \u20869 \u30465 \u12479 \u12452 \u12512 \u12391 \u12377 \u65281 `;\
         setNotifications(prev => [...prev, reminder]);\
@@ -56,8 +63,12 @@ export default function GrowthAssistantApp() \{\
 \
   const generateInsight = () => \{\
     if (userGoal.trim()) \{\
-      setAiInsight(`\uc0\u12354 \u12394 \u12383 \u12398 \u30446 \u27161 \u12300 $\{userGoal\}\u12301 \u12395 \u23550 \u12375 \u12390 \u12289 \u27425 \u12398 \u21839 \u12356 \u12434 \u32771 \u12360 \u12390 \u12415 \u12414 \u12375 \u12423 \u12358 \u65306 \\n\u12300 \u12381 \u12428 \u12434 \u36948 \u25104 \u12375 \u12383 \u12356 \u29702 \u30001 \u12399 \u20309 \u12391 \u12377 \u12363 \u65311 \u12301 \\n\u12300 \u12381 \u12428 \u12434 \u22952 \u12370 \u12390 \u12356 \u12427 \u35201 \u22240 \u12399 \u20309 \u12391 \u12377 \u12363 \u65311 \u12301 `);\
+      setAiInsight(`\uc0\u55358 \u56800  \u12300 $\{userGoal\}\u12301 \u12395 \u21521 \u12369 \u12390 \u32771 \u12360 \u12390 \u12415 \u12414 \u12375 \u12423 \u12358 \u65306 \\n- \u12381 \u12428 \u12434 \u30446 \u25351 \u12377 \u21205 \u27231 \u12399 \u65311 \\n- \u20309 \u12364 \u22952 \u12370 \u12390 \u12356 \u12427 \u65311 \\n- \u26126 \u26085 1\u12388 \u23455 \u36341 \u12391 \u12365 \u12427 \u12371 \u12392 \u12399 \u65311 `);\
     \}\
+  \};\
+\
+  const generateAutoFeedback = () => \{\
+    return `\uc0\u55357 \u56556  \u12501 \u12451 \u12540 \u12489 \u12496 \u12483 \u12463 \u65306 \u12354 \u12394 \u12383 \u12398 \u26368 \u36817 \u12398 \u35352 \u37682 \u12399 \u12392 \u12390 \u12418 \u24847 \u27442 \u30340 \u12391 \u12377 \u12397 \u65281 \u12300 $\{userGoal\}\u12301 \u12395 \u21521 \u12369 \u12383 \u23567 \u12373 \u12394 \u12473 \u12486 \u12483 \u12503 \u12434 \u27598 \u26085 \u31309 \u12415 \u37325 \u12397 \u12390 \u12356 \u12427 \u12371 \u12392 \u12399 \u32032 \u26228 \u12425 \u12375 \u12356 \u25104 \u26524 \u12391 \u12377 \u12290 `;\
   \};\
 \
   const saveReflection = () => \{\
@@ -92,16 +103,21 @@ export default function GrowthAssistantApp() \{\
   \};\
 \
   const weeklySummary = groupScoresByWeek(scoreHistory);\
+  const badge = getBadge(userScore);\
+  const autoFeedback = generateAutoFeedback();\
 \
   return (\
     <div className="max-w-4xl mx-auto p-6 space-y-6">\
       <motion.h1 className="text-3xl font-bold" initial=\{\{ opacity: 0, y: -20 \}\} animate=\{\{ opacity: 1, y: 0 \}\}>\
-        \uc0\u55357 \u56960  AI\u25104 \u38263 \u12450 \u12471 \u12473 \u12479 \u12531 \u12488 \u65288 UI/AI\u36914 \u21270 \u29256 \u65289 \
+        \uc0\u55357 \u56960  AI\u25104 \u38263 \u12450 \u12471 \u12473 \u12479 \u12531 \u12488 \u65288 \u23436 \u20840 \u36914 \u21270 \u29256 \u65289 \
       </motion.h1>\
 \
-      <Button onClick=\{() => setAdminView(!adminView)\}>\
-        \{adminView ? "\uc0\u12518 \u12540 \u12470 \u12540 \u12499 \u12517 \u12540 \u12408 " : "\u31649 \u29702 \u32773 \u12499 \u12517 \u12540 \u12408 "\}\
-      </Button>\
+      <div className="flex justify-between items-center">\
+        <span className="text-lg font-semibold">\{badge\}</span>\
+        <Button onClick=\{() => setAdminView(!adminView)\}>\
+          \{adminView ? "\uc0\u12518 \u12540 \u12470 \u12540 \u12499 \u12517 \u12540 \u12408 " : "\u31649 \u29702 \u32773 \u12499 \u12517 \u12540 \u12408 "\}\
+        </Button>\
+      </div>\
 \
       \{!adminView && (\
         <>\
@@ -133,8 +149,9 @@ export default function GrowthAssistantApp() \{\
           </CardContent></Card>\
 \
           <Card><CardContent>\
-            <h2 className="text-xl font-bold mb-2">\uc0\u55356 \u57119  \u12473 \u12467 \u12450 </h2>\
+            <h2 className="text-xl font-bold mb-2">\uc0\u55356 \u57119  \u12473 \u12467 \u12450 \u12392 \u31216 \u21495 </h2>\
             <p>\uc0\u29694 \u22312 \u12398 \u12473 \u12467 \u12450 : \{userScore\} \u28857 </p>\
+            <p className="text-green-700">\{autoFeedback\}</p>\
             <div className="mt-4">\
               <Line data=\{scoreChartData\} />\
             </div>\
@@ -165,5 +182,4 @@ export default function GrowthAssistantApp() \{\
       )\}\
     </div>\
   );\
-\}\
-}
+\}}
