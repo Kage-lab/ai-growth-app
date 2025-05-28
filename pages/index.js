@@ -1,1 +1,2 @@
-export { default } from '../app/GrowthAssistantApp.js';
+import GrowthAssistantApp from '../components/GrowthAssistantApp';
+export default GrowthAssistantApp;
