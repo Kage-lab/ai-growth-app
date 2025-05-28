@@ -1,1 +1,1 @@
-export { default } from '../app/GrowthAssistantApp';
+export { default } from '../app/GrowthAssistantApp.js';
