@@ -5,7 +5,7 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww15320\viewh12980\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 // \uc0\u39640 \u24230 \u27231 \u33021 \u36914 \u21270 \u29256 \u65306 AI\u25104 \u38263 \u12450 \u12471 \u12473 \u12479 \u12531 \u12488 \u12450 \u12503 \u12522 \
+\f0\fs24 \cf0 // \uc0\u12501 \u12523 \u12450 \u12483 \u12503 \u12464 \u12524 \u12540 \u12489 \u29256 \u65306 AI\u25104 \u38263 \u12450 \u12471 \u12473 \u12479 \u12531 \u12488 \u12450 \u12503 \u12522  with UI/UX + AI\u24375 \u21270  + \u12466 \u12540 \u12511 \u12501 \u12451 \u12465 \u12540 \u12471 \u12519 \u12531 \
 import \{ useState, useEffect \} from "react";\
 import \{ Button \} from "../components/ui/button";\
 import \{ Card, CardContent \} from "../components/ui/card";\
@@ -14,7 +14,6 @@ import \{ Textarea \} from "../components/ui/textarea";\
 import \{ motion \} from "framer-motion";\
 import \{ Line \} from "react-chartjs-2";\
 import \{ Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale \} from 'chart.js';\
-\
 ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale);\
 \
 function groupScoresByWeek(history) \{\
@@ -46,7 +45,7 @@ export default function GrowthAssistantApp() \{\
   useEffect(() => \{\
     const interval = setInterval(() => \{\
       const now = new Date();\
-      const [hour, minute] = notificationTime.split(":".map(Number));\
+      const [hour, minute] = notificationTime.split(":").map(Number);\
       if (now.getHours() === hour && now.getMinutes() === minute) \{\
         const reminder = `\uc0\u55357 \u56596  $\{now.toLocaleTimeString()\} - \u20170 \u26085 \u12398 \u20869 \u30465 \u12479 \u12452 \u12512 \u12391 \u12377 \u65281 `;\
         setNotifications(prev => [...prev, reminder]);\
@@ -97,7 +96,7 @@ export default function GrowthAssistantApp() \{\
   return (\
     <div className="max-w-4xl mx-auto p-6 space-y-6">\
       <motion.h1 className="text-3xl font-bold" initial=\{\{ opacity: 0, y: -20 \}\} animate=\{\{ opacity: 1, y: 0 \}\}>\
-        \uc0\u55357 \u56960  AI\u25104 \u38263 \u12450 \u12471 \u12473 \u12479 \u12531 \u12488 \u65288 \u27231 \u33021 \u36914 \u21270 \u29256 \u65289 \
+        \uc0\u55357 \u56960  AI\u25104 \u38263 \u12450 \u12471 \u12473 \u12479 \u12531 \u12488 \u65288 UI/AI\u36914 \u21270 \u29256 \u65289 \
       </motion.h1>\
 \
       <Button onClick=\{() => setAdminView(!adminView)\}>\
